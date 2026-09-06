@@ -1,0 +1,5 @@
+view_id,view_name,number_of_features,main_content,missing_cells,total_cells,cell_level_missing_rate,entire_view_missing_n,entire_view_missing_rate,patients_with_at_least_one_feature,mean_patient_coverage
+C1,Clinical,11,Demographics symptoms lifestyle and vital signs,7830,48785,0.160500,0,0.000000,4435,0.839500
+C2,Routine Laboratory,34,Hematology coagulation electrolytes liver renal glucose and lipids,28640,150790,0.189933,23,0.005186,4412,0.810067
+C3,Cardiac Biomarker,8,Troponin CK-MB myoglobin BNP CK LDH alpha-HBDH and IMA,9765,35480,0.275225,211,0.047576,4224,0.724775
+C4,ECG,12,Rate intervals axes waveform durations and voltage,35230,53220,0.661969,2620,0.590755,1815,0.338031

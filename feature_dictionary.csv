@@ -1,0 +1,66 @@
+feature_id,feature_name,original_variable,view,data_type,unit,observed_n,missing_rate,transformation,distance_handling,derived_from,notes
+F01,Sex,sex,Clinical,binary,dimensionless,4435,0.000000,none,categorical_match,,Frozen binary code
+F02,Age,age,Clinical,continuous,years,4435,0.000000,P1-P99 clipping,robust_gower,,
+F03,Chief complaint category,chief_complaint_category,Clinical,nominal,dimensionless,3926,0.114769,none,categorical_match,,Codes 1-6 are treated as nominal; category meanings were not recovered
+F04,Smoking status,smoking_status,Clinical,nominal,dimensionless,3669,0.172717,none,categorical_match,personal_history_smoking_status;personal_history_smoking_cessation,0 never; 1 current; 2 former; unknown code 3 is converted to missing
+F05,Alcohol use status,alcohol_use_status,Clinical,nominal,dimensionless,3586,0.191432,none,categorical_match,personal_history_alcohol_use;personal_history_alcohol_cessation,0 never; 1 current; 2 former; unknown code 3 is converted to missing
+F06,Log1p and P99-capped pack-years,smoking_pack_years_log1p_w99,Clinical,continuous,log1p_pack_years,1710,0.614431,validate exposure; cap at 100 pack-years; log1p; P1-P99 clipping,robust_gower,smoking_pack_years;personal_history_cigarettes_per_day;personal_history_smoking_years,Implausible exposure is set to missing before derivation
+F07,Body temperature,physical_exam_body_temperature,Clinical,continuous,degree_Celsius,3880,0.125141,P1-P99 clipping,robust_gower,,Zero values had previously been treated as missing
+F08,Respiratory rate,physical_exam_respiratory_rate,Clinical,continuous,breaths_per_min,3879,0.125366,P1-P99 clipping,robust_gower,,Values outside 5-60 are set to missing
+F09,Systolic blood pressure,physical_exam_systolic_blood_pressure,Clinical,continuous,mmHg,3838,0.134611,P1-P99 clipping,robust_gower,,Values outside 40-300 are set to missing
+F10,Diastolic blood pressure,physical_exam_diastolic_blood_pressure,Clinical,continuous,mmHg,3841,0.133935,P1-P99 clipping,robust_gower,,Values outside 20-200 are set to missing
+F11,Physical-examination heart rate,physical_exam_heart_rate,Clinical,continuous,beats_per_min,3756,0.153100,P1-P99 clipping,robust_gower,,Values outside 20-250 are set to missing
+F12,PR interval,ecg_PR,ECG,continuous,ms,1080,0.756483,P1-P99 clipping,robust_gower,,Zero is set to missing
+F13,QT interval,ecg_QT,ECG,continuous,ms,1109,0.749944,P1-P99 clipping,robust_gower,,Zero is set to missing
+F14,Corrected QT interval,ecg_QTc,ECG,continuous,ms,1108,0.750169,P1-P99 clipping,robust_gower,,Zero is set to missing
+F15,ECG T parameter,ecg_T,ECG,continuous,source_unit_not_documented,1206,0.728072,P1-P99 clipping,robust_gower,,Device-specific definition and unit were not recovered
+F16,QRS duration,ecg_QRS,ECG,continuous,ms,1593,0.640812,P1-P99 clipping,robust_gower,,Zero is set to missing
+F17,ECG heart rate,ecg_HR,ECG,continuous,beats_per_min,1731,0.609696,P1-P99 clipping,robust_gower,,Zero is set to missing
+F18,QRS axis,ecg_QRS_axis,ECG,circular_degree,degree,1751,0.605186,none,circular_angle,,Zero degrees is valid
+F19,P-wave duration,ecg_P,ECG,continuous,ms,1429,0.677790,P1-P99 clipping,robust_gower,,Zero is set to missing
+F20,P axis,ecg_P_axis,ECG,circular_degree,degree,1762,0.602706,none,circular_angle,,Zero degrees is valid
+F21,T axis,ecg_T_axis,ECG,circular_degree,degree,1632,0.632018,none,circular_angle,,Zero degrees is valid
+F22,SV1 amplitude,ecg_SV1,ECG,continuous,mV,1794,0.595490,P1-P99 clipping,robust_gower,,Zero is retained
+F23,RV5 amplitude,ecg_RV5,ECG,continuous,mV,1795,0.595265,P1-P99 clipping,robust_gower,,Zero is retained
+F24,Unified troponin percentile,unified_troponin_percentile,Cardiac Biomarker,continuous,dimensionless_0_to_1,3917,0.116798,assay-specific empirical percentile; mean if both; P1-P99 clipping,robust_gower,ami_assay_troponin_I;ami_assay_high_sensitivity_troponin_I,Assay indicator is excluded from the main distance
+F25,Myoglobin,ami_assay_myoglobin,Cardiac Biomarker,continuous,source_unit_not_documented,1936,0.563472,conditional log1p; P1-P99 clipping,robust_gower,,
+F26,B-type natriuretic peptide,cardiac_enzyme_panel_B_type_natriuretic_peptide,Cardiac Biomarker,continuous,source_unit_not_documented,3379,0.238106,conditional log1p; P1-P99 clipping,robust_gower,,
+F27,Alpha-hydroxybutyrate dehydrogenase,cardiac_enzyme_panel_alpha_hydroxybutyrate_dehydrogenase,Cardiac Biomarker,continuous,source_unit_not_documented,3204,0.277565,conditional log1p; P1-P99 clipping,robust_gower,,
+F28,Lactate dehydrogenase,cardiac_enzyme_panel_lactate_dehydrogenase,Cardiac Biomarker,continuous,source_unit_not_documented,3149,0.289966,conditional log1p; P1-P99 clipping,robust_gower,,
+F29,Ischemia-modified albumin,cardiac_enzyme_panel_ischemia_modified_albumin,Cardiac Biomarker,continuous,source_unit_not_documented,3190,0.280722,P1-P99 clipping,robust_gower,,
+F30,Creatine kinase,cardiac_enzyme_panel_creatine_kinase,Cardiac Biomarker,continuous,source_unit_not_documented,3174,0.284329,conditional log1p; P1-P99 clipping,robust_gower,,
+F31,Unified CK-MB percentile,unified_CKMB_percentile,Cardiac Biomarker,continuous,dimensionless_0_to_1,3766,0.150846,assay-specific empirical percentile; mean if both; P1-P99 clipping,robust_gower,cardiac_enzyme_panel_CKMB_activity;cardiac_enzyme_panel_CKMB_mass,Assay indicator is excluded from the main distance
+F32,D-dimer,coagulation_panel_D_dimer,Routine Laboratory,continuous,source_unit_not_documented,4180,0.057497,conditional log1p; P1-P99 clipping,robust_gower,,
+F33,Fibrinogen,coagulation_panel_fibrinogen,Routine Laboratory,continuous,source_unit_not_documented,4301,0.030214,P1-P99 clipping,robust_gower,,
+F34,Neutrophil fraction,complete_blood_count_neutrophil_fraction,Routine Laboratory,continuous,proportion_0_to_1,4027,0.091995,P1-P99 clipping,robust_gower,,Stored as a proportion rather than percentage points
+F35,Neutrophil count,complete_blood_count_neutrophil_count,Routine Laboratory,continuous,source_unit_not_documented,4027,0.091995,P1-P99 clipping,robust_gower,,
+F36,Monocyte fraction,complete_blood_count_monocyte_fraction,Routine Laboratory,continuous,proportion_0_to_1,4027,0.091995,P1-P99 clipping,robust_gower,,Stored as a proportion rather than percentage points
+F37,Monocyte count,complete_blood_count_monocyte_count,Routine Laboratory,continuous,source_unit_not_documented,4027,0.091995,P1-P99 clipping,robust_gower,,
+F38,Mean corpuscular hemoglobin,complete_blood_count_mean_corpuscular_hemoglobin,Routine Laboratory,continuous,source_unit_not_documented,3459,0.220068,P1-P99 clipping,robust_gower,,
+F39,Mean corpuscular hemoglobin concentration,complete_blood_count_mean_corpuscular_hemoglobin_concentration,Routine Laboratory,continuous,source_unit_not_documented,3459,0.220068,P1-P99 clipping,robust_gower,,
+F40,White blood cell count,complete_blood_count_white_blood_cell_count,Routine Laboratory,continuous,source_unit_not_documented,3459,0.220068,P1-P99 clipping,robust_gower,,
+F41,Platelet distribution width,complete_blood_count_platelet_distribution_width,Routine Laboratory,continuous,source_unit_not_documented,4019,0.093799,P1-P99 clipping,robust_gower,,
+F42,Plateletcrit,complete_blood_count_plateletcrit,Routine Laboratory,continuous,source_scale_unit_not_documented,4020,0.093574,P1-P99 clipping,robust_gower,,Source values show heterogeneous scale; no silent unit conversion was applied
+F43,Platelet count,complete_blood_count_platelet_count,Routine Laboratory,continuous,source_unit_not_documented,3459,0.220068,conditional log1p; P1-P99 clipping,robust_gower,,
+F44,Hemoglobin,complete_blood_count_hemoglobin,Routine Laboratory,continuous,source_unit_not_documented,3459,0.220068,P1-P99 clipping,robust_gower,,
+F45,Chloride,electrolyte_panel_chloride,Routine Laboratory,continuous,source_unit_not_documented,4366,0.015558,P1-P99 clipping,robust_gower,,
+F46,Phosphorus,electrolyte_panel_phosphorus,Routine Laboratory,continuous,source_unit_not_documented,3707,0.164149,conditional log1p; P1-P99 clipping,robust_gower,,
+F47,Calcium,electrolyte_panel_calcium,Routine Laboratory,continuous,source_unit_not_documented,4249,0.041939,P1-P99 clipping,robust_gower,,
+F48,Sodium,electrolyte_panel_sodium,Routine Laboratory,continuous,source_unit_not_documented,3798,0.143630,P1-P99 clipping,robust_gower,,
+F49,Potassium,electrolyte_panel_potassium,Routine Laboratory,continuous,source_unit_not_documented,3798,0.143630,P1-P99 clipping,robust_gower,,
+F50,Glycated hemoglobin,glycated_hemoglobin_HbA1c,Routine Laboratory,continuous,proportion_0_to_1,1784,0.597745,P1-P99 clipping,robust_gower,,Stored as a proportion rather than percentage points
+F51,Alanine aminotransferase,liver_function_alanine_aminotransferase,Routine Laboratory,continuous,source_unit_not_documented,3512,0.208117,conditional log1p; P1-P99 clipping,robust_gower,,
+F52,Aspartate aminotransferase,liver_function_aspartate_aminotransferase,Routine Laboratory,continuous,source_unit_not_documented,3512,0.208117,conditional log1p; P1-P99 clipping,robust_gower,,
+F53,Total protein,liver_function_total_protein,Routine Laboratory,continuous,source_unit_not_documented,3512,0.208117,P1-P99 clipping,robust_gower,,
+F54,Albumin,liver_function_albumin,Routine Laboratory,continuous,source_unit_not_documented,3515,0.207441,P1-P99 clipping,robust_gower,,
+F55,Alkaline phosphatase,liver_function_alkaline_phosphatase,Routine Laboratory,continuous,source_unit_not_documented,3487,0.213754,conditional log1p; P1-P99 clipping,robust_gower,,
+F56,Urea,renal_function_urea,Routine Laboratory,continuous,source_unit_not_documented,3547,0.200225,conditional log1p; P1-P99 clipping,robust_gower,,
+F57,Creatinine,renal_function_creatinine,Routine Laboratory,continuous,source_unit_not_documented,3558,0.197745,conditional log1p; P1-P99 clipping,robust_gower,,
+F58,Random glucose,glucose_measurement_random_glucose,Routine Laboratory,continuous,source_unit_not_documented,1877,0.576776,conditional log1p; P1-P99 clipping,robust_gower,,
+F59,Low-density lipoprotein cholesterol,lipid_panel_low_density_lipoprotein_cholesterol,Routine Laboratory,continuous,source_unit_not_documented,3312,0.253213,P1-P99 clipping,robust_gower,,
+F60,Total cholesterol,lipid_panel_total_cholesterol,Routine Laboratory,continuous,source_unit_not_documented,3318,0.251860,P1-P99 clipping,robust_gower,,
+F61,Triglycerides,lipid_panel_triglycerides,Routine Laboratory,continuous,source_unit_not_documented,3318,0.251860,conditional log1p; P1-P99 clipping,robust_gower,,
+F62,Lipoprotein(a),lipid_panel_lipoprotein_a,Routine Laboratory,continuous,source_unit_not_documented,3580,0.192785,conditional log1p; P1-P99 clipping,robust_gower,,
+F63,Apolipoprotein A1,lipid_panel_apolipoprotein_A1,Routine Laboratory,continuous,source_unit_not_documented,3584,0.191883,P1-P99 clipping,robust_gower,,
+F64,Apolipoprotein B,lipid_panel_apolipoprotein_B,Routine Laboratory,continuous,source_unit_not_documented,3582,0.192334,P1-P99 clipping,robust_gower,,
+F65,High-density lipoprotein cholesterol,lipid_panel_high_density_lipoprotein_cholesterol,Routine Laboratory,continuous,source_unit_not_documented,3311,0.253439,P1-P99 clipping,robust_gower,,
